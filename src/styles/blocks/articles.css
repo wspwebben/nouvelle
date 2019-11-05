@@ -12,6 +12,110 @@
     font-size: 21px;
 }
 
+@media screen and (max-width: 320px) {
+
+    .main{
+        box-sizing: border-box;
+        display: grid;
+    }
+
+
+    h1{
+        position: relative;
+
+        font-family: RF Dewi;
+        font-size: 21px;
+        line-height: 25px;
+        letter-spacing: 0.03em;
+        color: #FFFFFF;
+
+    }
+
+    h2{
+        font-family: RF Dewi Expanded;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+
+        color: #000000;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+
+    .lead:first-letter{
+        font-family: RF Dewi Expanded;
+        font-size: 73px;
+        /*line-height: 124px;*/
+
+        letter-spacing: 0.033em;
+        color: #696969;
+
+
+        padding: 3px; /* Поля вокруг первой буквы */
+        margin-right: 5px; /* Отступ справа */
+        float: left; /* Обтекание по правому краю */
+
+
+    }
+
+    .lead {
+        clear: left;
+    }
+
+    p{
+        font-family: RF Dewi;
+        font-size: 12px;
+        line-height: 170%;
+        /* or 20px */
+
+
+        color: #000000;
+    }
+    ol{
+        list-style-type: #B1B3B6;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+    }
+
+}
+
+@media screen and (min-width: 320px, max-width: 1024px) {
+    .main{
+        box-sizing: border-box;
+        display: grid;
+    }
+    .main--left,
+    .main--right{
+        box-sizing: border-box;
+        display: grid;
+    }
+
+    .lead:first-letter{
+        font-family: RF Dewi Expanded;
+        font-size: 73px;
+        /*line-height: 124px;*/
+
+        letter-spacing: 0.033em;
+        color: #696969;
+
+
+        padding: 3px; /* Поля вокруг первой буквы */
+        margin-right: 5px; /* Отступ справа */
+        float: left; /* Обтекание по правому краю */
+
+
+    }
+
+    .lead {
+        clear: left;
+    }
+}
+
+
 @media screen and (min-width: 1024px) {
     .articles__more {
         padding-top: 40px;
@@ -20,4 +124,82 @@
     .articles__link {
         font-size: 48px;
     }
+
+    /*.main{
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }*/
+
+    .main--left,
+    .main--right{
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    h1{
+        font-size: 48px;
+        line-height: 58px;
+        color: #000000;
+    }
+
+    h2{
+        font-size: 24px;
+        line-height: 29px;
+        /* identical to box height */
+
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+
+        color: #000000;
+
+        display: flex;
+        justify-content: flex-start;
+    }
+    p{
+        font-family: RF Dewi;
+        font-size: 21px;
+        line-height: 170%;
+        /* or 36px */
+
+        letter-spacing: 0.033em;
+
+        color: #000000;
+    }
+
+    .lead:first-letter{
+        font-family: RF Dewi Expanded;
+        font-size: 73px;
+        /*line-height: 124px;*/
+
+        letter-spacing: 0.033em;
+        color: #696969;
+
+
+        padding: 0 3px; /* Поля вокруг первой буквы */
+        margin-right: 5px; /* Отступ справа */
+        float: left; /* Обтекание по правому краю */
+    }
+
+    .lead {
+        clear: left;
+    }
+
+
+    .article{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
 }
+
+
+/*
+h2:nth-child(3)::before{
+    max-width: 375px;
+    width: 100%;
+    background-image: url("images/caniuse.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}*/
