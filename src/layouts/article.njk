@@ -5,9 +5,20 @@ layout: page.njk
 {% include 'header.njk' %}
 
 <main class="main">
+  <div class="main--left">
     <h1>{{ title }}</h1>
     <p>{{ date }}</p>
+       </div>
+           <div class="main--right">
     {{ content | safe }}
+    </div>
+    <div class="article">
+            <div class="article--left">
+            </div>
+            <div class="article--right">
+              <p class="lead">{{ content }}</p>
+              {{ content }}
+           </div>
 </main>
 
 {% include 'aside.njk' %}
