@@ -14,7 +14,7 @@
 
 @media screen and (max-width: 320px) {
 
-    .main{
+    .main {
         box-sizing: border-box;
         display: grid;
     }
@@ -23,7 +23,7 @@
     h1{
         position: relative;
 
-        font-family: RF Dewi;
+        font-family: 'RF Dewi', sans-serif;
         font-size: 21px;
         line-height: 25px;
         letter-spacing: 0.03em;
@@ -32,7 +32,7 @@
     }
 
     h2{
-        font-family: RF Dewi Expanded;
+        font-family: 'RF Dewi Expanded', sans-serif;
         font-size: 16px;
         line-height: 19px;
         letter-spacing: 0.08em;
@@ -44,8 +44,8 @@
     }
 
 
-    .lead:first-letter{
-        font-family: RF Dewi Expanded;
+    .lead::first-letter{
+        font-family: 'RF Dewi Expanded', sans-serif;
         font-size: 73px;
         /*line-height: 124px;*/
 
@@ -65,7 +65,7 @@
     }
 
     p{
-        font-family: RF Dewi;
+        font-family: 'RF Dewi', sans-serif;
         font-size: 12px;
         line-height: 170%;
         /* or 20px */
@@ -83,7 +83,7 @@
 
 }
 
-@media screen and (min-width: 320px, max-width: 1024px) {
+@media (min-width: 320px) and (max-width: 1024px) {
     .main{
         box-sizing: border-box;
         display: grid;
@@ -95,7 +95,7 @@
     }
 
     .lead:first-letter{
-        font-family: RF Dewi Expanded;
+        font-family: 'RF Dewi Expanded', sans-serif;
         font-size: 73px;
         /*line-height: 124px;*/
 
