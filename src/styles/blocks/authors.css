@@ -1,0 +1,121 @@
+.authors {
+    display: flex;
+    font-size: 10px;
+    line-height: 130%;
+    color: black;
+}
+
+.authors__author-avatar {
+    display: none;
+}
+
+.authors__author-roles-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: none;
+}
+
+.authors__collaborators {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.authors__author,
+.authors__collaborators:not(:last-child) {
+    margin-right: 33px;
+}
+
+.authors__author-link,
+.authors__collaborators-link {
+    color: var(--color-grey-darker);
+    letter-spacing: -0.03em;
+}
+
+.authors__collaborators-link:hover,
+.authors__collaborators-link:focus {
+    opacity: 0.6;
+}
+
+.authors__author-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+}
+
+.authors__author-link:hover,
+.authors__author-link:focus {
+    text-decoration: underline;
+}
+
+.authors__collaborators-heading {
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+@media (min-width: 1024px) {
+    .authors {
+        align-items: flex-start;
+        padding: 0;
+    }
+
+    .authors__author {
+        display: flex;
+        margin-right: 24px;
+    }
+
+    .authors__author-avatar {
+        display: block;
+        margin-right: 39px;
+    }
+
+    .authors__author-roles-list {
+        display: block;
+    }
+
+    .authors__author-link,
+    .authors__collaborators,
+    .authors__author-roles-list {
+        margin-top: 16px;
+        font-size: 16px;
+        line-height: 160%;
+    }
+
+    .authors__collaborators-heading {
+        letter-spacing: 1%;
+    }
+
+    .authors__collaborators-link {
+        letter-spacing: -2.5%;
+    }
+}
+
+@media (min-width: 1240px) {
+    .authors {
+        flex-direction: column;
+    }
+
+    .authors__author {
+        flex-direction: column;
+    }
+
+    .authors__author-avatar {
+        width: 128px;
+        height: auto;
+        margin-bottom: 26px;
+        margin-right: 0;
+    }
+
+    .authors__author-link,
+    .authors__collaborators,
+    .authors__author-roles-list {
+        margin-top: 0;
+    }
+
+    .authors__author,
+    .authors__collaborators:not(:last-child) {
+        margin-bottom: 15px;
+        margin-right: 0;
+    }
+}
