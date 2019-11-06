@@ -5,20 +5,76 @@ layout: page.njk
 {% include 'header.njk' %}
 
 <main class="main">
-  <div class="main--left">
-    <h1>{{ title }}</h1>
-    <p>{{ date }}</p>
-       </div>
-           <div class="main--right">
-    {{ content | safe }}
-    </div>
-    <div class="article">
-            <div class="article--left">
+    <div class="main__content article">
+        <div class="article__heading-wrapper">
+            <div class="article__heading">
+                <h1 class="article__title">{{ title }}</h1>
+                {% if source %}
+                    <p class="article__source">
+                        Перевод
+                        «<a class="article__link" href="{{ source.url }}">
+                            {{ source.title }}
+                        </a>»
+                        {{ source.author }}
+                    </p>
+                {% endif %}
+                <div class="article__meta">
+                    <time class="article__date" datetime="{{ date | formatDate }}">
+                        {{ date | formatDate }}
+                    </time>
+                    <ul class="article__tags">
+                        {%- for tag in tags | filterArticleTag -%}
+                            <li class="article__tags-item">
+                                <a class="article__tags-link" href="/articles/tags/{{ tag }}">
+                                    {{ tag }}
+                                </a>
+                            </li>
+                        {%- endfor -%}
+                    </ul>
+                </div>
             </div>
-            <div class="article--right">
-              <p class="lead">{{ content }}</p>
-              {{ content }}
-           </div>
+        </div>
+        <div class="article__authors authors">
+            {%- for author in authors -%}
+                <div class="authors__author">
+                    <img class="authors__author-avatar" src="/images/author--blue.png" width="113" height="104" alt="{{ author.name }}">
+                    <a class="authors__author-link" href="{{ author.url }}">
+                        {{ author.name }}
+                    </a>
+                {# TODO Пока ролей нет, возможно, стоит дропнуть
+                    <ul class="authors__author-roles-list">
+                        <li class="authors__role">Разработчик</li>
+                    </ul>
+                #}
+                </div>
+            {%- endfor -%}
+
+            {% if translators %}
+                <p class="authors__collaborators">
+                    <span class="authors__collaborators-heading">Перевод</span>
+                    {%- for translator in translators -%}
+                        <a class="authors__collaborators-link" href="{{ translator.url }}">
+                            {{ translator.name }}
+                        </a>
+                    {%- endfor -%}
+                </p>
+            {% endif %}
+
+            {% if editors %}
+                <p class="authors__collaborators">
+                    <span class="authors__collaborators-heading">Редактура</span>
+                    {%- for editor in editors -%}
+                        <a class="authors__collaborators-link" href="{{ editor.url }}">
+                            {{ editor.name }}
+                        </a>
+                    {%- endfor -%}
+                </p>
+            {% endif %}
+        </div>
+        <div class="article__content content">
+            {{ content | safe }}
+        </div>
+    </address>
 </main>
 
 {% include 'aside.njk' %}
