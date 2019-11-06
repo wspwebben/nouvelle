@@ -44,7 +44,7 @@
     }
 
 
-    .lead:first-letter{
+    .lead::first-letter{
         font-family: 'RF Dewi Expanded', sans-serif;
         font-size: 73px;
         /*line-height: 124px;*/
