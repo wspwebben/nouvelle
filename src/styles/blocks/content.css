@@ -30,7 +30,7 @@
 
         font-family: 'RF Dewi', sans-serif;
         font-size: 21px;
-        line-height: 25px;
+        line-height: 1.19em;
         letter-spacing: 0.03em;
         color: white;
     }
@@ -38,7 +38,7 @@
     h2 {
         font-family: 'RF Dewi Expanded', sans-serif;
         font-size: 16px;
-        line-height: 19px;
+        line-height: 1.18em;
         letter-spacing: 0.08em;
         text-transform: uppercase;
 
@@ -67,7 +67,7 @@
     p {
         font-family: 'RF Dewi', sans-serif;
         font-size: 12px;
-        line-height: 170%;
+        line-height: 1.64em;
         color: black;
     }
 
@@ -128,13 +128,13 @@
 
     h1 {
         font-size: 48px;
-        line-height: 58px;
+        line-height: 1.2em;
         color: black;
     }
 
     h2 {
         font-size: 24px;
-        line-height: 29px;
+        line-height: 1.2em;
         letter-spacing: 0.08em;
         text-transform: uppercase;
 
@@ -147,7 +147,7 @@
     p {
         font-family: 'RF Dewi', sans-serif;
         font-size: 21px;
-        line-height: 170%;
+        line-height: 1.7em;
         letter-spacing: 0.03em;
         color: black;
     }
