@@ -1,8 +1,53 @@
 /* Content */
 
-.content img {
-    max-width: 100%;
-    height: auto;
+.content {
+    --list-marker-color: var(--color-grey-lighter);
+
+    --image-caption-color: var(--color-grey-darker);
+
+    --code-bg-gradient-left: var(--color-green-light);
+    --code-bg-gradient-right: #def3f6;
+    --code-overflow-gradient-left: transparent;
+    --code-overflow-gradient-right: #dff3f4;
+    --code-scrollbar-color: #a3cfd1;
+    font-size: 12px;
+    line-height: 1.7;
+    color: black;
+}
+
+.content h2,
+.content h3 {
+    margin-top: 32px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.2;
+    font-family: 'Dewi Expanded', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.content h3 {
+    font-size: 14px;
+}
+
+.content h2 code,
+.content h3 code {
+    /* fixes default monospace font */
+    font-family: inherit;
+}
+
+.content p {
+    margin-top: 1em;
+    margin-bottom: 0;
+}
+
+.content p:first-child {
+    margin-top: 0;
+}
+
+.content a {
+    color: #0064a4;
+    text-decoration: none;
 }
 
 .content a:link {
@@ -18,6 +63,206 @@
 .content a:active {
     color: var(--color-turquoise);
 }
+
+/* Lists
+    '>' selector fixes nested lists
+*/
+
+.content ol,
+.content ul {
+    list-style: none;
+    margin: 16px 0;
+    padding-left: 0;
+}
+
+.content li {
+    position: relative;
+    margin-top: 16px;
+}
+
+/* Unordered Lists */
+
+.content ul > li {
+    padding-left: 37px;
+}
+
+.content ul > li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 14px;
+    height: 2px;
+    background-color: var(--list-marker-color);
+}
+
+/* Ordered Lists */
+
+.content ol {
+    counter-reset: list;
+}
+
+.content ol > li {
+    padding-left: 24px;
+}
+
+.content ol > li::before {
+    counter-increment: list;
+    content: counter(list);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1.2;
+    color: var(--list-marker-color);
+}
+
+/* Картинки */
+
+.content img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+
+    /* set margin for imgs, which doesnt have figure wrapper */
+    margin-top: 16px;
+}
+
+.content img + em,
+.content figcaption {
+    display: block;
+    margin-top: 8px;
+    font-size: 10px;
+    line-height: 1.7;
+    font-style: normal;
+    color: var(--image-caption-color);
+}
+
+.content figure,
+.content .content__image {
+    margin: 0;
+    margin: 32px 0;
+}
+
+.content figure img {
+    /* reset margin when img has figure around it */
+    margin: 0;
+}
+
+/* Increase specificity */
+
+/* .content .content__image--full {
+} */
+
+.content .content__image--align-left,
+.content .content__image--align-right {
+    margin: 16px 0;
+}
+
+/* Цитаты */
+
+.content blockquote {
+    position: relative;
+    margin: 16px 0;
+    padding: 5px 0;
+    padding-left: 14px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: black;
+}
+
+.content blockquote::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: var(--color-grey-lighter);
+}
+
+.content blockquote h1 {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+/* Код */
+
+.content pre {
+    position: relative;
+    margin: 16px 0;
+    padding: 4px 16px;
+    background-color: var(--code-bg-gradient-left);
+    background-image: linear-gradient(
+        to right,
+        var(--code-bg-gradient-left) 0%,
+        var(--code-bg-gradient-right) 100%
+    );
+}
+
+.content pre::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 76px;
+    background-image: linear-gradient(
+        to left,
+        var(--code-overflow-gradient-right) 0%,
+        var(--code-overflow-gradient-left) 100%
+    );
+}
+
+.content pre code {
+    display: block;
+    padding: 16px 0;
+    overflow: auto;
+}
+
+.content code::-webkit-scrollbar {
+    height: 3px;
+}
+
+.content code::-webkit-scrollbar-thumb {
+    background-color: var(--code-scrollbar-color);
+    border-radius: 24px;
+}
+
+.content iframe {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    margin-top: 16px;
+    border: 0;
+}
+
+/* Буквица */
+
+.content > p:first-of-type::first-letter {
+    font-family: 'Dewi Expanded';
+    color: var(--color-grey-medium);
+}
+
+/* @supports (-webkit-initial-letter: 2) or (initial-letter: 2) {
+    .content > p:first-of-type {
+        initial-letter: 2;
+    }
+} */
+
+@supports not ((-webkit-initial-letter: 2) or (initial-letter: 2)) {
+    .content > p:first-of-type::first-letter {
+        float: left;
+        padding: 0 5px;
+        font-size: 2em;
+    }
+}
+
 
 @media (min-width: 1240px) {
     .content {
