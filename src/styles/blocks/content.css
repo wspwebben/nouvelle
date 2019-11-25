@@ -1,15 +1,6 @@
 /* Content */
 
 .content {
-    --list-marker-color: var(--color-grey-lighter);
-
-    --image-caption-color: var(--color-grey-darker);
-
-    --code-bg-gradient-left: var(--color-green-light);
-    --code-bg-gradient-right: #def3f6;
-    --code-overflow-gradient-left: transparent;
-    --code-overflow-gradient-right: #dff3f4;
-    --code-scrollbar-color: #a3cfd1;
     font-size: 12px;
     line-height: 1.7;
     color: black;
@@ -46,7 +37,7 @@
 }
 
 .content a {
-    color: #0064a4;
+    color: var(--color-blue-medium);
     text-decoration: none;
 }
 
@@ -64,9 +55,7 @@
     color: var(--color-turquoise);
 }
 
-/* Lists
-    '>' selector fixes nested lists
-*/
+/* Lists */
 
 .content ol,
 .content ul {
@@ -87,13 +76,13 @@
 }
 
 .content ul > li::before {
-    content: '';
+    content: '—';
     position: absolute;
     left: 0;
-    top: 0.5em;
-    width: 14px;
-    height: 2px;
-    background-color: var(--list-marker-color);
+    top: -0.4em;
+    bottom: 0;
+    font-size: 21px;
+    color: var(--color-grey-lighter);
 }
 
 /* Ordered Lists */
@@ -115,50 +104,22 @@
     font-size: 21px;
     font-weight: bold;
     line-height: 1.2;
-    color: var(--list-marker-color);
+    color: var(--color-grey-lighter);
 }
 
-/* Картинки */
+/*
+    Картинки
+
+    Основные стили задаются через блок media
+*/
 
 .content img {
-    display: block;
-    width: 100%;
     max-width: 100%;
     height: auto;
-
-    /* set margin for imgs, which doesnt have figure wrapper */
-    margin-top: 16px;
 }
 
-.content img + em,
-.content figcaption {
-    display: block;
-    margin-top: 8px;
-    font-size: 10px;
-    line-height: 1.7;
-    font-style: normal;
-    color: var(--image-caption-color);
-}
-
-.content figure,
-.content .content__image {
-    margin: 0;
+.content figure {
     margin: 32px 0;
-}
-
-.content figure img {
-    /* reset margin when img has figure around it */
-    margin: 0;
-}
-
-/* Increase specificity */
-
-/* .content .content__image--full {
-} */
-
-.content .content__image--align-left,
-.content .content__image--align-right {
-    margin: 16px 0;
 }
 
 /* Цитаты */
@@ -183,24 +144,17 @@
     background-color: var(--color-grey-lighter);
 }
 
-.content blockquote h1 {
-    margin: 0;
-    font-size: inherit;
-    font-weight: inherit;
-    color: inherit;
-}
-
 /* Код */
 
 .content pre {
     position: relative;
     margin: 16px 0;
     padding: 4px 16px;
-    background-color: var(--code-bg-gradient-left);
+    background-color: var(--color-green-light);
     background-image: linear-gradient(
         to right,
-        var(--code-bg-gradient-left) 0%,
-        var(--code-bg-gradient-right) 100%
+        var(--color-green-light) 0%,
+        var(--color-blue-lightest) 100%
     );
 }
 
@@ -213,8 +167,8 @@
     width: 76px;
     background-image: linear-gradient(
         to left,
-        var(--code-overflow-gradient-right) 0%,
-        var(--code-overflow-gradient-left) 100%
+        var(--color-blue-lightest) 0%,
+        transparent 100%
     );
 }
 
@@ -222,6 +176,8 @@
     display: block;
     padding: 16px 0;
     overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-green-darker) transparent;
 }
 
 .content code::-webkit-scrollbar {
@@ -229,7 +185,7 @@
 }
 
 .content code::-webkit-scrollbar-thumb {
-    background-color: var(--code-scrollbar-color);
+    background-color: var(--color-green-darker);
     border-radius: 24px;
 }
 
@@ -245,22 +201,11 @@
 /* Буквица */
 
 .content > p:first-of-type::first-letter {
+    float: left;
+    padding: 0 5px;
+    font-size: 2em;
     font-family: 'Dewi Expanded';
     color: var(--color-grey-medium);
-}
-
-/* @supports (-webkit-initial-letter: 2) or (initial-letter: 2) {
-    .content > p:first-of-type {
-        initial-letter: 2;
-    }
-} */
-
-@supports not ((-webkit-initial-letter: 2) or (initial-letter: 2)) {
-    .content > p:first-of-type::first-letter {
-        float: left;
-        padding: 0 5px;
-        font-size: 2em;
-    }
 }
 
 
