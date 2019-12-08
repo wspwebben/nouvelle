@@ -4,6 +4,11 @@
     font-size: 12px;
     line-height: 1.7;
     color: black;
+    box-sizing: border-box;
+}
+
+.content * {
+    box-sizing: inherit;
 }
 
 .content h2,
@@ -37,7 +42,6 @@
 }
 
 .content a {
-    color: var(--color-blue-medium);
     text-decoration: none;
 }
 
@@ -114,6 +118,7 @@
 */
 
 .content img {
+    display: block;
     max-width: 100%;
     height: auto;
 }
@@ -211,13 +216,107 @@
 
 @media (min-width: 1240px) {
     .content {
-        width: 863px;
+        --content-width: 65%;
+        --content-half: calc(var(--content-width) / 2);
+        font-size: 21px;
+    }
+
+    .content.content > * {
+        /* не хватает специфичности, чтобы перебить маргины у элементов */
+        width: var(--content-width);
         margin-left: auto;
     }
-}
 
-@media (min-width: 1500px) {
-    .content {
-        width: 880px;
+    .content h2,
+    .content h3 {
+        margin-top: 60px;
+        margin-bottom: 24px;
+        font-size: 24px;
+    }
+
+    .content p {
+        letter-spacing: 0.03em;
+    }
+
+    .content a {
+        text-decoration: underline;
+    }
+
+    .content ol > li,
+    .content ul > li {
+        padding-left: 43px;
+    }
+
+    .content ul > li::before {
+        left: 6px;
+        top: 0;
+    }
+
+    .content ol > li::before {
+        top: 0.2em;
+    }
+
+    /* Картинки */
+
+    /* Подпись в левой колонке */
+
+    .content .content__media--floated-caption {
+        display: flex;
+        width: 100%;
+    }
+
+    .content__media--floated-caption img {
+        max-width: var(--content-width);
+    }
+
+    .content__media--floated-caption figcaption {
+        order: -1;
+        max-width: 300px;
+        margin-right: auto;
+    }
+
+    /* Картинки с обтеканием текста */
+
+    .content .content__media--align-right {
+        width: var(--content-half);
+        float: right;
+        margin-left: 1em;
+    }
+
+    /* .content__media--align-right + * {
+        clear: both;
+    } */
+
+    /* Картинки на всю ширину */
+
+    .content .content__media--full {
+        width: 100%;
+    }
+
+    .content__media--full figcaption {
+        width: var(--content-width);
+        margin-left: auto;
+    }
+
+    .content blockquote {
+        margin-top: 40px;
+        margin-bottom: 60px;
+        padding-left: 40px;
+        font-size: 32px;
+    }
+
+    .content blockquote::before {
+        width: 4px;
+        top: 0.5em;
+        bottom: 0.5em;
+    }
+
+    .content pre {
+        margin: 60px 0;
+        padding-left: 36px;
+    }
+
+    .content pre code {
+        padding: 32px 0;
     }
 }
