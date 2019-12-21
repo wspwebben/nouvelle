@@ -64,7 +64,8 @@
 .content ol,
 .content ul {
     list-style: none;
-    margin: 16px 0;
+    margin-top: 16px;
+    margin-bottom: 16px;
     padding-left: 0;
 }
 
@@ -123,15 +124,12 @@
     height: auto;
 }
 
-.content figure {
-    margin: 32px 0;
-}
-
 /* Цитаты */
 
 .content blockquote {
     position: relative;
-    margin: 16px 0;
+    margin-top: 16px;
+    margin-bottom: 16px;
     padding: 5px 0;
     padding-left: 14px;
     font-size: 18px;
@@ -153,7 +151,8 @@
 
 .content pre {
     position: relative;
-    margin: 16px 0;
+    margin-top: 16px;
+    margin-bottom: 16px;
     padding: 4px 16px;
     background-color: var(--color-green-light);
     background-image: linear-gradient(
@@ -221,10 +220,10 @@
         font-size: 21px;
     }
 
-    .content.content > * {
-        /* не хватает специфичности, чтобы перебить маргины у элементов */
+    .content > * {
         width: var(--content-width);
         margin-left: auto;
+        margin-right: 0;
     }
 
     .content h2,
@@ -240,6 +239,12 @@
 
     .content a {
         text-decoration: underline;
+    }
+
+    .content ol,
+    .content ul {
+        margin-top: 32px;
+        margin-bottom: 32px;
     }
 
     .content ol > li,
@@ -258,46 +263,6 @@
 
     /* Картинки */
 
-    /* Подпись в левой колонке */
-
-    .content .content__media--floated-caption {
-        display: flex;
-        width: 100%;
-    }
-
-    .content__media--floated-caption img {
-        max-width: var(--content-width);
-    }
-
-    .content__media--floated-caption figcaption {
-        order: -1;
-        max-width: 300px;
-        margin-right: auto;
-    }
-
-    /* Картинки с обтеканием текста */
-
-    .content .content__media--align-right {
-        width: var(--content-half);
-        float: right;
-        margin-left: 1em;
-    }
-
-    /* .content__media--align-right + * {
-        clear: both;
-    } */
-
-    /* Картинки на всю ширину */
-
-    .content .content__media--full {
-        width: 100%;
-    }
-
-    .content__media--full figcaption {
-        width: var(--content-width);
-        margin-left: auto;
-    }
-
     .content blockquote {
         margin-top: 40px;
         margin-bottom: 60px;
@@ -312,7 +277,8 @@
     }
 
     .content pre {
-        margin: 60px 0;
+        margin-top: 60px;
+        margin-bottom: 60px;
         padding-left: 36px;
     }
 
