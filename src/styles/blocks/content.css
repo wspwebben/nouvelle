@@ -206,6 +206,7 @@
 
 .content > p:first-of-type::first-letter {
     float: left;
+    margin: -0.1em 0;
     padding: 0 5px;
     font-size: 2em;
     font-family: 'Dewi Expanded';
